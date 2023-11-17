@@ -1,17 +1,19 @@
 <script>
   import Notification from './Notification.svelte';
 
-  export let showNotification = true;
+  import { notificationStore } from './notificationStore';
 
-  const testNotification = {
-    message: 'Hello world!'
-  };
+  let notifications;
+
+  notificationStore.subscribe(value => {
+    notifications = value;
+  });
 </script>
 
 <ul class="notification-container">
-  {#if showNotification}
-    <Notification notification={testNotification} />
-  {/if}
+  {#each notifications as notification}
+    <Notification notification={notification} />
+  {/each}
 </ul>
 
 <style>
