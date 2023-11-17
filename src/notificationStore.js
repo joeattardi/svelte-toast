@@ -1,2 +1,10 @@
-// In this file, you'll create a writable store for maintaining
-// a list of notifications.
+import { writable } from 'svelte/store';
+
+export const notificationStore = writable([]);
+
+export function showNotification(notification) {
+  notificationStore.update(notifications => [
+    notification,
+    ...notifications
+  ]);
+}
