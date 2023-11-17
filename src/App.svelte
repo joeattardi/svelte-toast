@@ -1,14 +1,13 @@
 <script>
   import NotificationContainer from './NotificationContainer.svelte';
-
-  let showNotification = false;
+  import { showNotification } from './notificationStore';
 
   function handleClick() {
-    showNotification = true;
+    showNotification({ message: 'Hello world!' });
   }
 </script>
 
-<NotificationContainer showNotification={showNotification} />
+<NotificationContainer />
 <main>
   <h1>Svelte Toast</h1>
   <button on:click={handleClick}>Show Notification</button>
