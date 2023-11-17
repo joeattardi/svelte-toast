@@ -1,4 +1,18 @@
-<ul class="notification-container"></ul>
+<script>
+  import Notification from './Notification.svelte';
+
+  export let showNotification = true;
+
+  const testNotification = {
+    message: 'Hello world!'
+  };
+</script>
+
+<ul class="notification-container">
+  {#if showNotification}
+    <Notification notification={testNotification} />
+  {/if}
+</ul>
 
 <style>
   .notification-container {
