@@ -8,3 +8,7 @@ export function showNotification(notification) {
     ...notifications
   ]);
 }
+
+export function removeNotification(notification) {
+  notificationStore.update(notifications => notifications.filter(n => n !== notification));
+}
