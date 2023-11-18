@@ -7,6 +7,10 @@ export function showNotification(notification) {
     notification,
     ...notifications
   ]);
+
+  setTimeout(() => {
+    removeNotification(notification);
+  }, 4000);
 }
 
 export function removeNotification(notification) {
