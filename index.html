@@ -7,7 +7,17 @@
     <title>Svelte Toast</title>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <h1>Svelte Toast</h1>
+    <button>Show Notification</button>
+    <notification-container></notification-container>
+
+    <script type="module">
+      import './src/NotificationContainer.svelte';
+      import { showNotification } from './src/notificationStore';
+
+      document.querySelector('button').addEventListener('click', () => {
+        showNotification({ message: 'Hello Web Component!' });
+      });
+    </script>
   </body>
 </html>
