@@ -1,5 +1,11 @@
 <script>
+  import { removeNotification } from './notificationStore';
+
   export let notification;
+
+  function handleClickClose() {
+    removeNotification(notification);
+  }
 </script>
 
 <li 
@@ -8,6 +14,7 @@
   class:error={notification.type === 'error'}
 >
   <div class="message">{notification.message}</div>
+  <button on:click={handleClickClose} class="close-button">&times;</button>
 </li>
 
 <style>
@@ -15,6 +22,12 @@
     background-color: #cccccc;
     padding: 1em;
     margin: 1em;
+    display: flex;
+    align-items: center;
+  }
+
+  .message {
+    flex-grow: 1;
   }
 
   .success {
@@ -23,5 +36,10 @@
 
   .error {
     background-color: #fca5a5;
+  }
+
+  .close-button {
+    background: transparent;
+    border: none;
   }
 </style>
