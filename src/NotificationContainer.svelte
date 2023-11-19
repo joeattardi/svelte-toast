@@ -1,3 +1,5 @@
+<svelte:options customElement="notification-container" />
+
 <script>
   import Notification from './Notification.svelte';
 
