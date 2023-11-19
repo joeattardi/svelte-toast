@@ -16,3 +16,10 @@ export function showNotification(notification) {
 export function removeNotification(notification) {
   notificationStore.update(notifications => notifications.filter(n => n !== notification));
 }
+
+export function trackPromise(promise) {
+  showNotification({ message: 'Starting operation' });
+  promise
+    .then(message => showNotification({ type: 'success', message }))
+    .catch(error => showNotification({ type: 'error', message: error.message }));
+}
