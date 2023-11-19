@@ -1,4 +1,5 @@
 <script>
+  import { fly } from 'svelte/transition';
   import { removeNotification } from './notificationStore';
 
   export let notification;
@@ -8,10 +9,11 @@
   }
 </script>
 
-<li 
+<li
   class="notification"
   class:success={notification.type === 'success'}
   class:error={notification.type === 'error'}
+  transition:fly={{ x: 50 }}
 >
   <div class="message">{notification.message}</div>
   <button on:click={handleClickClose} class="close-button">&times;</button>

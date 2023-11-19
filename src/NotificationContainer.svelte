@@ -11,7 +11,7 @@
 </script>
 
 <ul class="notification-container">
-  {#each notifications as notification}
+  {#each notifications as notification (notification.id)}
     <Notification notification={notification} />
   {/each}
 </ul>

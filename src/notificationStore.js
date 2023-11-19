@@ -3,6 +3,7 @@ import { writable } from 'svelte/store';
 export const notificationStore = writable([]);
 
 export function showNotification(notification) {
+  notification.id = Date.now();
   notificationStore.update(notifications => [
     notification,
     ...notifications
